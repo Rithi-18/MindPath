@@ -1,0 +1,129 @@
+.pb-10 { padding-bottom: 2.5rem; }
+.mb-30 { margin-bottom: 30px; }
+.mb-20 { margin-bottom: 20px; }
+.dash-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 5px; color: var(--text-main); font-family: var(--font-heading); }
+.card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 5px; color: var(--text-main); font-family: var(--font-heading); }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.gap-2 { gap: 8px; }
+.m-0 { margin: 0 !important; }
+.hover-text:hover { color: var(--primary); }
+
+.stat-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-number { font-size: 2.5rem; font-weight: 800; margin-bottom: 5px; color: var(--text-main); font-family: var(--font-heading); line-height: 1; }
+.icon-box { width: 36px; height: 36px; border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+.icon-box.purple { background: var(--purple-light); color: var(--primary); }
+.icon-box.teal { background: var(--teal-light); color: var(--teal); }
+.icon-box.amber { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+.icon-box.purple-light { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+
+.chart-container { height: 220px; width: 100%; position: relative; }
+.trend-badge.positive { background: rgba(34, 197, 94, 0.15); color: var(--green); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+
+.gauge-safe-zone { position: relative; width: 100%; max-width: 200px; margin: 20px auto 30px; display: flex; justify-content: center; }
+.gauge-svg { width: 100%; height: auto; overflow: visible; }
+.gauge-text-overlay { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; }
+.gauge-text-overlay h2 { font-size: 2.5rem; font-weight: 800; color: var(--teal); line-height: 1; margin: 0; }
+.gauge-text-overlay span { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; }
+.alert-box { padding: 15px; border-radius: 12px; margin-top: auto; }
+.teal-alert { background: var(--teal-light); }
+
+/* FIXED AI RECOMMENDATIONS GRID */
+.ai-recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.recommendation-card { border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: var(--bg-main); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: column; }
+.recommendation-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); border-color: var(--primary); }
+.rec-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; justify-content: center; align-items: center; }
+.teal-bg { background: var(--teal-light); }
+.green-bg { background: rgba(34, 197, 94, 0.15); }
+.purple-bg { background: var(--purple-light); }
+.amber-bg { background: rgba(245, 158, 11, 0.15); }
+.time-badge { font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+.teal-text { color: var(--teal); background: var(--teal-light); }
+.green-text { color: var(--green); background: rgba(34, 197, 94, 0.15); }
+.purple-text { color: var(--primary); background: var(--purple-light); }
+.amber-text { color: var(--amber); background: rgba(245, 158, 11, 0.15); }
+.recommendation-card h4 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 700; color: var(--text-main); font-family: var(--font-heading); }
+.recommendation-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+.journal-list { display: flex; flex-direction: column; gap: 15px; }
+.journal-item { display: flex; align-items: center; gap: 20px; padding: 20px; background: var(--bg-main); border-radius: 16px; border: 1px solid transparent; transition: all 0.2s; cursor: pointer; }
+.journal-item:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); transform: translateX(5px); }
+.score-circle { width: 50px; height: 50px; border-radius: 50%; background: var(--purple-light); color: var(--primary); display: flex; justify-content: center; align-items: center; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; flex-shrink: 0; }
+.score-circle.amber-border { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+.score-circle.green-border { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+.journal-content { flex: 1; }
+.journal-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.date-tag { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+.blue-tag { background: rgba(2, 132, 199, 0.15); color: #0ea5e9; }
+.amber-tag { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+.green-tag { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+.journal-content p { color: var(--text-muted); font-size: 0.95rem; margin: 0; line-height: 1.5; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .grid-4, .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Dashboard.css */
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Forces a 2rem gap between every vertical section */
+  padding-bottom: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap; /* Allows the header to stack on small screens */
+  gap: 1rem;
+}
+
+/* 1. Stats Row (The top row of small cards) */
+.stats-grid {
+  display: grid;
+  /* Automatically creates columns that are at least 240px wide */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* 2. Main Content Area (Charts and Activity) */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 66% width for the left, 33% for the right */
+  gap: 2rem;
+  align-items: start; /* CRITICAL: Prevents cards from stretching vertically to match each other */
+  width: 100%;
+}
+
+/* Stack cards vertically inside columns */
+.dashboard-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+}
+
+/* Global Card Fixes to prevent overflow */
+.dashboard-page .tilt-card {
+  height: auto !important; /* Overrides any hardcoded heights */
+  min-height: 150px;
+  box-sizing: border-box;
+  overflow: hidden; /* Keeps contents strictly inside the card */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .dashboard-main-grid {
+    grid-template-columns: 1fr; /* Stacks the charts and activity into 1 single column on tablets/phones */
+  }
+}
+
