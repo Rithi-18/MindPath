@@ -47,7 +47,7 @@ const AIAnalysis = ({ user }) => {
       }
 
       // 4. Fetch fresh data from the Python AI Engine
-      const response = await fetch('http://127.0.0.1:5000/api/analyze', {
+      const response = await fetch('https://mindpath-ai-backend.onrender.com/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: user.id })
