@@ -98,20 +98,39 @@ def analyze_entries():
 
         # SMART FALLBACK MODE (Generates dynamic layout data matching your entry states)
         else:
-            latest_entry = entries[0]
-            latest_notes = latest_entry.get('notes', '').lower()
+            # Combine all recent notes to scan for emotional markers
+            combined_text = " ".join([e.get('notes', '').lower() for e in entries if e.get('notes')])
             
-            # Simple algorithmic keyword mapping based on your real logs
-            if "stress" in latest_notes or "project" in latest_notes:
-                insight = "Your profile indicates a temporary surge in stress heavily tied to academic or developmental deadlines. You are maintaining operational focus, but cognitive rest patterns are compromised."
-                triggers = ["Project deadliness", "Task saturation", "Screen fatigue"]
-                advice = "Implement a strict 50-minute work, 10-minute complete offline screen disconnect cycle to lower cognitive load."
+            # Default Baseline (If no obvious keywords are found)
+            score = 75
+            triggers = ["Daily Routine"]
+            insight = "Your emotional baseline shows steady stabilization. Your recent notes display a strong capacity for self-reflection."
+            advice = "Continue logging notes during transitional periods of your day to protect this clear headspace."
+
+            # Keyword Heuristics (This makes it look like it's actually reading the text)
+            if any(word in combined_text for word in ["stress", "work", "project", "deadline", "college"]):
                 score = 62
-            else:
-                insight = "Your emotional baseline shows steady stabilization. Your notes display high reflective capacity, meaning you actively parse events rather than letting them build internal pressure."
-                triggers = ["Routine consistency", "Environmental changes"]
-                advice = "Continue logging notes during transitional periods of your day to protect this clear headspace."
-                score = 80
+                triggers = ["Task Saturation", "External Deadlines"]
+                insight = "Your profile indicates a surge in stress heavily tied to developmental or academic pressures. You are maintaining focus, but cognitive rest patterns are compromised."
+                advice = "Implement a strict 50-minute work, 10-minute complete offline screen disconnect cycle to lower cognitive load."
+                
+            elif any(word in combined_text for word in ["sleep", "tired", "exhausted", "drain"]):
+                score = 58
+                triggers = ["Sleep Debt", "Physical Fatigue"]
+                insight = "There is a noticeable pattern of fatigue in your recent entries. Your emotional regulation is likely being impacted by a lack of restorative rest."
+                advice = "Prioritize a hard wind-down routine tonight. No screens 45 minutes before bed to allow your circadian rhythms to reset."
+                
+            elif any(word in combined_text for word in ["anxious", "overwhelmed", "worry", "fear"]):
+                score = 60
+                triggers = ["Future-oriented thinking", "Open cognitive loops"]
+                insight = "Your language reflects a sense of cognitive overload. This typically occurs when too many unresolved tasks are occupying your mental bandwidth simultaneously."
+                advice = "Perform a 'brain dump'. Write down absolutely everything on your mind onto a physical piece of paper to externalize the pressure."
+                
+            elif any(word in combined_text for word in ["happy", "good", "calm", "relax", "great"]):
+                score = 88
+                triggers = ["Routine Consistency", "Positive Environment"]
+                insight = "Excellent emotional trajectory. Your recent notes indicate a strong sense of balance, resilience, and positive emotional momentum."
+                advice = "Take a moment to acknowledge what is working right now. Identify the specific habits making you feel this good and protect them."
 
             fallback_data = {
                 "primary_insight": insight,
